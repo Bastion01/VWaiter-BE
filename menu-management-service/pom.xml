@@ -11,7 +11,8 @@
 	<groupId>com.vwaiter</groupId>
 	<artifactId>menu-management-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>menu-management-service</name>
+    <packaging>pom</packaging>
+    <name>menu-management-service</name>
 	<description>VWaiter menu management service</description>
 	<url/>
 	<licenses>
@@ -20,7 +21,12 @@
 	<developers>
 		<developer/>
 	</developers>
-	<scm>
+    <modules>
+        <module>menu-management-service-database</module>
+        <module>menu-management-service-application</module>
+        <module>menu-management-service-model</module>
+    </modules>
+    <scm>
 		<connection/>
 		<developerConnection/>
 		<tag/>
@@ -59,10 +65,13 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 
