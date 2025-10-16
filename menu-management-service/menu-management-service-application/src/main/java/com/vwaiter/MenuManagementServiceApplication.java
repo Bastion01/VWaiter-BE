@@ -1,4 +1,4 @@
-package com.vwaiter.menu_management_service;
+package com.vwaiter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

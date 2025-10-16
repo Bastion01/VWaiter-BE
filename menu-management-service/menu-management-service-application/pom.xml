@@ -11,13 +11,31 @@
 
     <artifactId>menu-management-service-application</artifactId>
     <groupId>com.vwaiter.menu_management_service</groupId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.vwaiter</groupId>
+            <artifactId>menu-management-service-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vwaiter</groupId>
+            <artifactId>menu-management-service-model</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vwaiter</groupId>
+            <artifactId>menu-management-service-database</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.vwaiter.menu_management_service.MenuManagementServiceApplication</mainClass>
+                    <mainClass>com.vwaiter.MenuManagementServiceApplication</mainClass>
                     <skip>false</skip>
                 </configuration>
             </plugin>
