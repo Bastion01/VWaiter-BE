@@ -11,5 +11,6 @@
 
     <artifactId>menu-management-service-model</artifactId>
 
+    <packaging>jar</packaging>
 
 </project>

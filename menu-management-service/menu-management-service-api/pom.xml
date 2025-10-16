@@ -10,4 +10,5 @@
     </parent>
 
     <artifactId>menu-management-service-api</artifactId>
+    <packaging>jar</packaging>
 </project>

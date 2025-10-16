@@ -11,6 +11,7 @@
 
     <artifactId>menu-management-service-application</artifactId>
     <groupId>com.vwaiter.menu_management_service</groupId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -29,6 +30,7 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -36,8 +38,14 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>com.vwaiter.MenuManagementServiceApplication</mainClass>
-                    <skip>false</skip>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
