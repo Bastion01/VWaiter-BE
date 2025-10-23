@@ -1,5 +1,6 @@
 package com.vwaiter;
 
+import lombok.Getter;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,21 +18,14 @@ public class TestApi {
     }
 }
 
-class HelloWorld{
+@Getter
+class HelloWorld {
    private static int countOfExecution;
    private String value;
 
     public HelloWorld(String value) {
         this.value = value;
         countOfExecution++;
-    }
-
-    public static int getCountOfExecution() {
-        return countOfExecution;
-    }
-
-    public String getValue() {
-        return value;
     }
 
     @Override

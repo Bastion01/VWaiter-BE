@@ -1,0 +1,318 @@
+{
+    "info": {
+        "name": "VWaiter",
+        "_postman_id": "718e5a13-d444-42a7-847d-ea390c118f9a",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get Menus",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": {
+                    "raw": ""
+                },
+                "method": "GET",
+                "header": [],
+                "auth": {
+                    "type": "noauth"
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Get Menu By Id",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/menus/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "v1",
+                        "menus",
+                        "1"
+                    ]
+                },
+                "method": "GET",
+                "header": [],
+                "auth": {
+                    "type": "noauth"
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Get Dishes",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": {
+                    "raw": ""
+                },
+                "method": "GET",
+                "header": [],
+                "auth": {
+                    "type": "noauth"
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Get Dish By Id",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/dishes/2",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "v1",
+                        "dishes",
+                        "2"
+                    ]
+                },
+                "method": "GET",
+                "header": [],
+                "auth": {
+                    "type": "noauth"
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Create Dish",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/dishes",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "v1",
+                        "dishes"
+                    ]
+                },
+                "method": "POST",
+                "header": [],
+                "auth": {
+                    "type": "noauth"
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Delete Dish",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": {
+                    "raw": "http://localhost:8080/api/v1/dishes/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "api",
+                        "v1",
+                        "dishes",
+                        "1"
+                    ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "auth": {
+                    "type": "noauth"
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Update Dish By Id",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "url": {
+                    "raw": ""
+                },
+                "method": "GET",
+                "header": [],
+                "auth": {
+                    "type": "noauth"
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {}
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}
