@@ -1,6 +1,7 @@
 package com.vwaiter;
 
 import com.vwaiter.common.Currency;
+import com.vwaiter.crutches.OrderNumberGenerator;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,9 +17,10 @@ import java.io.Serializable;
 @Table(name="dishes")
 @DynamicUpdate
 public class Dish implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long dishId;
     public String name;
     public int weight;
     public String composition;
@@ -27,4 +29,11 @@ public class Dish implements Serializable {
     public float rating;
     @Column(name = "reviews_amount")
     public int reviewsAmount;
+    @Column(name = "order_number")
+    public int orderNumber = OrderNumberGenerator.getOrderNumberGenerator().getOrderNumber();
+
+    @PrePersist
+    protected void onCreate() {
+        OrderNumberGenerator.incrementInMemoryCounter();
+    }
 }

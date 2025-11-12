@@ -5,6 +5,7 @@ import com.vwaiter.repository.DishRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -18,6 +19,10 @@ public class DishService {
 
     public List<Dish> findAll() {
         return dishRepository.findAll();
+    }
+
+    public List<Dish> findAllByIds(Long[] ids) {
+        return dishRepository.findAllById(Arrays.asList(ids));
     }
 
     public Dish save(Dish dish) {

@@ -1,6 +1,6 @@
 services:
 
-  db:
+  menu-management-service-db:
     image: postgres
     restart: always
     # set shared memory limit when using docker compose

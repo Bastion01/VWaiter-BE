@@ -1,6 +1,7 @@
 package com.vwaiter;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,8 +17,10 @@ import java.util.List;
 public class Menu implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
+    private Long menuId;
+    public String name;
+    @NotNull
+    private Long b2bCustomerId;
     @OneToMany(cascade = CascadeType.MERGE)
     public List<Dish> dishes;
 
