@@ -18,6 +18,17 @@ services:
     ports:
       - 5432:5432
 
+  order-management-service-db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_DB: storage
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+    ports:
+      - 5433:5432
+
   adminer:
     image: adminer
     restart: always

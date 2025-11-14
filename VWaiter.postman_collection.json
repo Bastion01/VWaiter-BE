@@ -46,9 +46,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/menus",
+									"raw": "{{menuManagementBaseUrl}}/api/v1/menus",
 									"host": [
-										"{{baseUrl}}"
+										"{{menuManagementBaseUrl}}"
 									],
 									"path": [
 										"api",
@@ -92,9 +92,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/menus/:id",
+									"raw": "{{menuManagementBaseUrl}}/api/v1/menus/:id",
 									"host": [
-										"{{baseUrl}}"
+										"{{menuManagementBaseUrl}}"
 									],
 									"path": [
 										"api",
@@ -127,9 +127,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/menus",
+									"raw": "{{menuManagementBaseUrl}}/api/v1/menus",
 									"host": [
-										"{{baseUrl}}"
+										"{{menuManagementBaseUrl}}"
 									],
 									"path": [
 										"api",
@@ -173,9 +173,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/menus/:id",
+									"raw": "{{menuManagementBaseUrl}}/api/v1/menus/:id",
 									"host": [
-										"{{baseUrl}}"
+										"{{menuManagementBaseUrl}}"
 									],
 									"path": [
 										"api",
@@ -231,9 +231,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/dishes/2",
+									"raw": "{{menuManagementBaseUrl}}/api/v1/dishes/2",
 									"host": [
-										"{{baseUrl}}"
+										"{{menuManagementBaseUrl}}"
 									],
 									"path": [
 										"api",
@@ -278,9 +278,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/dishes",
+									"raw": "{{menuManagementBaseUrl}}/api/v1/dishes",
 									"host": [
-										"{{baseUrl}}"
+										"{{menuManagementBaseUrl}}"
 									],
 									"path": [
 										"api",
@@ -297,9 +297,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/dishes/bulk/:ids",
+									"raw": "{{menuManagementBaseUrl}}/api/v1/dishes/bulk/:ids",
 									"host": [
-										"{{baseUrl}}"
+										"{{menuManagementBaseUrl}}"
 									],
 									"path": [
 										"api",
@@ -360,9 +360,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/dishes/menu/:menuId",
+									"raw": "{{menuManagementBaseUrl}}/api/v1/dishes/menu/:menuId",
 									"host": [
-										"{{baseUrl}}"
+										"{{menuManagementBaseUrl}}"
 									],
 									"path": [
 										"api",
@@ -448,9 +448,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/v1/dishes/:id",
+									"raw": "{{menuManagementBaseUrl}}/api/v1/dishes/:id",
 									"host": [
-										"{{baseUrl}}"
+										"{{menuManagementBaseUrl}}"
 									],
 									"path": [
 										"api",
@@ -462,6 +462,150 @@
 										{
 											"key": "id",
 											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "order-management-service",
+			"item": [
+				{
+					"name": "order",
+					"item": [
+						{
+							"name": "Get Orders",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{orderManagementBaseUrl}}/api/v1/orders",
+									"host": [
+										"{{orderManagementBaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Order By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{orderManagementBaseUrl}}/api/v1/orders/:id",
+									"host": [
+										"{{orderManagementBaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerId\": 2,\r\n    \"createdWhen\": \"2025-11-14T11:49:08.286+00:00\",\r\n    \"status\": \"CREATED\",\r\n    \"b2bCustomerId\": 1,\r\n    \"tableId\": 3,\r\n    \"waiterId\": 3,\r\n    \"orderItems\": [\r\n        {\r\n            \"dishId\": 2,\r\n            \"amount\": 2\r\n        },\r\n        {\r\n            \"dishId\": 4,\r\n            \"amount\": 3\r\n        }\r\n    ],\r\n    \"paidBy\": null,\r\n    \"paidWhen\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{orderManagementBaseUrl}}/api/v1/orders",
+									"host": [
+										"{{orderManagementBaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Order By Id",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerId\": 2,\r\n    \"createdWhen\": \"2025-11-14T11:49:08.286+00:00\",\r\n    \"status\": \"PAID\",\r\n    \"tableId\": 3,\r\n    \"waiterId\": 3,\r\n    \"orderItems\": [\r\n        {\r\n            \"dishId\": 2,\r\n            \"amount\": 2\r\n        },\r\n        {\r\n            \"dishId\": 4,\r\n            \"amount\": 3\r\n        }\r\n    ],\r\n    \"paidBy\": \"Card\",\r\n    \"paidWhen\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{orderManagementBaseUrl}}/api/v1/orders/:id",
+									"host": [
+										"{{orderManagementBaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Order",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{orderManagementBaseUrl}}/api/v1/orders/:id",
+									"host": [
+										"{{orderManagementBaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5"
 										}
 									]
 								}
