@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -23,6 +24,11 @@ public class OrderManagementServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(OrderManagementServiceApplication.class, args);
+	}
+
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
 	}
 
 	@Bean

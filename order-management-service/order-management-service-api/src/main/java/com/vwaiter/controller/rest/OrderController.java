@@ -3,6 +3,7 @@ package com.vwaiter.controller.rest;
 import com.vwaiter.Order;
 import com.vwaiter.controller.rest.mappers.OrderMapper;
 import com.vwaiter.dto.OrderDto;
+import com.vwaiter.orchestration.OrderSagaOrchestrator;
 import com.vwaiter.service.OrderService;
 import lombok.AllArgsConstructor;
 import org.mapstruct.factory.Mappers;
@@ -18,6 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderController {
     private final OrderService orderService;
+    private final OrderSagaOrchestrator orderSagaOrchestrator;
     private final OrderMapper orderMapper = Mappers.getMapper(OrderMapper.class);
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -36,6 +38,11 @@ public class OrderController {
     public ResponseEntity<Order> addOrder(@RequestBody Order order) {
         orderService.save(order);
         return new ResponseEntity<>(order, HttpStatus.CREATED);
+    }
+
+    @PostMapping(value = "/orchestrator", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Order> processOrder(@RequestBody Order order) {
+        return ResponseEntity.ok(orderSagaOrchestrator.process(order)); //TODO async with message broker RabbitMQ
     }
 
     @PatchMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
