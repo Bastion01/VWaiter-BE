@@ -24,7 +24,7 @@ public class Dish implements Serializable {
     public String name;
     public int weight;
     public String composition;
-    public int price;
+    public float price;
     public Currency currency;
     public float rating;
     @Column(name = "reviews_amount")

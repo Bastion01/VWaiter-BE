@@ -1,6 +1,6 @@
 #!/bin/bash
-SERVICE_NAME="notification-service" #example menu-management-service
-SERVICE_NAME_CAMEL_CASE="NotificationService" #example MenuManagementService
+SERVICE_NAME="payment-service" #example menu-management-service
+SERVICE_NAME_CAMEL_CASE="PaymentService" #example MenuManagementService
 
 echo "$SERVICE_NAME folders structure creation started!"
 mkdir -p "$SERVICE_NAME"
