@@ -231,7 +231,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{menuManagementBaseUrl}}/api/v1/dishes/2",
+									"raw": "{{menuManagementBaseUrl}}/api/v1/dishes/:id",
 									"host": [
 										"{{menuManagementBaseUrl}}"
 									],
@@ -239,7 +239,13 @@
 										"api",
 										"v1",
 										"dishes",
-										"2"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -387,19 +393,23 @@
 								{
 									"listen": "test",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
 									}
 								},
 								{
 									"listen": "prerequest",
 									"script": {
-										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
 									}
 								}
 							],
@@ -407,10 +417,34 @@
 								"auth": {
 									"type": "noauth"
 								},
-								"method": "GET",
+								"method": "PATCH",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"{{$randomColor}} Pelmeni\",\r\n    \"weight\": 750,\r\n    \"composition\": \"Testo i mnogo myasa\",\r\n    \"price\": 35,\r\n    \"currency\": \"BYN\",\r\n    \"rating\": 4.8,\r\n    \"reviewsAmount\": 30\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": ""
+									"raw": "{{menuManagementBaseUrl}}/api/v1/dishes/:id",
+									"host": [
+										"{{menuManagementBaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"dishes",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
 								}
 							},
 							"response": []
@@ -552,13 +586,41 @@
 							"response": []
 						},
 						{
+							"name": "Create and Process Order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerId\": 2,\r\n    \"createdWhen\": \"2025-11-14T11:49:08.286+00:00\",\r\n    \"status\": \"CREATED\",\r\n    \"b2bCustomerId\": 1,\r\n    \"tableId\": 3,\r\n    \"waiterId\": 3,\r\n    \"orderItems\": [\r\n        {\r\n            \"dishId\": 2,\r\n            \"amount\": 2\r\n        },\r\n        {\r\n            \"dishId\": 4,\r\n            \"amount\": 3\r\n        }\r\n    ],\r\n    \"paidBy\": null,\r\n    \"paidWhen\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{orderManagementBaseUrl}}/api/v1/orders",
+									"host": [
+										"{{orderManagementBaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Update Order By Id",
 							"request": {
 								"method": "PATCH",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"customerId\": 2,\r\n    \"createdWhen\": \"2025-11-14T11:49:08.286+00:00\",\r\n    \"status\": \"PAID\",\r\n    \"tableId\": 3,\r\n    \"waiterId\": 3,\r\n    \"orderItems\": [\r\n        {\r\n            \"dishId\": 2,\r\n            \"amount\": 2\r\n        },\r\n        {\r\n            \"dishId\": 4,\r\n            \"amount\": 3\r\n        }\r\n    ],\r\n    \"paidBy\": \"Card\",\r\n    \"paidWhen\": null\r\n}",
+									"raw": "{\r\n    \"customerId\": 2,\r\n    \"createdWhen\": \"2025-11-14T11:49:08.286+00:00\",\r\n    \"status\": \"PAID\",\r\n    \"tableId\": 3,\r\n    \"waiterId\": 3,\r\n    \"orderItems\": [\r\n        {\r\n            \"dishId\": 2,\r\n            \"amount\": 2\r\n        },\r\n        {\r\n            \"dishId\": 4,\r\n            \"amount\": 3\r\n        }\r\n    ],\r\n    \"paidBy\": \"CARD\",\r\n    \"paidWhen\": null\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -606,6 +668,150 @@
 										{
 											"key": "id",
 											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "notification-service",
+			"item": [
+				{
+					"name": "notification",
+					"item": [
+						{
+							"name": "Get Notification",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{notificationServiceUrl}}/api/v1/notifications/:id",
+									"host": [
+										"{{notificationServiceUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"notifications",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Notifications",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{notificationServiceUrl}}/api/v1/notifications",
+									"host": [
+										"{{notificationServiceUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Notification",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"createdWhen\": \"2025-11-14T11:49:08.286+00:00\",\r\n    \"recipientId\": \"1\",\r\n    \"type\": \"PUSH\",\r\n    \"templateId\": 12,\r\n    \"message\": \"Hello World!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{notificationServiceUrl}}/api/v1/notifications",
+									"host": [
+										"{{notificationServiceUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Notification",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"createdWhen\": \"2025-11-14T11:49:08.286+00:00\",\r\n    \"recipientId\": \"1\",\r\n    \"type\": \"EMAIL\",\r\n    \"templateId\": 12,\r\n    \"message\": \"Hello World!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{notificationServiceUrl}}/api/v1/notifications/:id",
+									"host": [
+										"{{notificationServiceUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"notifications",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Notification",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{notificationServiceUrl}}/api/v1/notifications/:id",
+									"host": [
+										"{{notificationServiceUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"notifications",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
 										}
 									]
 								}
