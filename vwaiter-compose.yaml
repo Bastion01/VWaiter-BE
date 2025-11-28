@@ -1,5 +1,6 @@
 services:
-
+#####___ DATABASES___#####
+#POSTGRES
   menu-management-service-db:
     image: postgres
     restart: always
@@ -33,8 +34,32 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8081:8080
+      - 9001:8080
+#NOSQL
+  notification-service-db:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: storage
+    ports:
+      - 27017:27017
 
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 9002:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+      ME_CONFIG_MONGODB_URL: mongodb://admin:admin@notification-service-db:27017/storage?authSource=admin
+      ME_CONFIG_BASICAUTH_ENABLED: true
+      ME_CONFIG_BASICAUTH_USERNAME: mongoexpressuser
+      ME_CONFIG_BASICAUTH_PASSWORD: mongoexpresspass
+
+#####___ APPLICATION___#####
 #  application:
 #    image: menu-management-service-image
 #    restart: always
